@@ -29,3 +29,30 @@ def load_data(file_path = "../data/clinical_cancer_data.xlsx"):
     dfs = [pd.read_excel(xls, sheet_name) for sheet_name in xls.sheet_names[1:]]
     
     return categories, dfs
+
+
+def feature_label_split(df: pd.DataFrame) -> tuple:
+    """
+    Split the dataframe into biomarker levels and cancer label.
+    
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The dataframe to split.
+    
+    Returns
+    -------
+    tuple
+        A tuple containing the biomarker levels and the cancer label.
+    
+    Notes
+    -----
+    The dataframe is assumed to have the following structure:
+    - The first column is the sample id.
+    - The second column is the Tumor type.
+    - The third column is the AJCC Stages.
+    - The columns from 4 to 43 are the biomarker levels.
+    """
+    biomarker_levels = df.iloc[:, 4:43]
+    cancer_label = df.iloc[:, 2]
+    return biomarker_levels, cancer_label
