@@ -132,32 +132,32 @@ def plot_important_biomarkers(important_biomarkers,
     return ax
 
 
-if __name__ == "__main__":
-    fig = plt.figure(figsize=(10, 8))
-    grid = plt.GridSpec(2, 2, width_ratios=[2, 1], height_ratios=[1, 1])
+# if __name__ == "__main__":
+#     fig = plt.figure(figsize=(10, 8))
+#     grid = plt.GridSpec(2, 2, width_ratios=[2, 1], height_ratios=[1, 1])
 
-    ax1 = plt.subplot(grid[:, 0])
-    ax2 = plt.subplot(grid[0, 1])
-    ax3 = plt.subplot(grid[1, 1])
+#     ax1 = plt.subplot(grid[:, 0])
+#     ax2 = plt.subplot(grid[0, 1])
+#     ax3 = plt.subplot(grid[1, 1])
 
-    plot_important_biomarkers(important_biomarkers = important_biomarkers_normal_ovary_pancreas,
-                              datasets = ['Normal', 'Ovary', 'Pancreas'],
-                              threshold = 0.05,
-                              color = 'goldenrod',
-                              ax = ax1)
+#     plot_important_biomarkers(important_biomarkers = important_biomarkers_normal_ovary_pancreas,
+#                               datasets = ['Normal', 'Ovary', 'Pancreas'],
+#                               threshold = 0.05,
+#                               color = 'goldenrod',
+#                               ax = ax1)
 
-    plot_important_biomarkers(important_biomarkers = important_biomarkers_normal_ovary,
-                              datasets = ['Normal', 'Ovary'],
-                              threshold = 0.05,
-                              color = 'mediumturquoise',
-                              ax = ax2)
+#     plot_important_biomarkers(important_biomarkers = important_biomarkers_normal_ovary,
+#                               datasets = ['Normal', 'Ovary'],
+#                               threshold = 0.05,
+#                               color = 'mediumturquoise',
+#                               ax = ax2)
 
-    plot_important_biomarkers(important_biomarkers = important_biomarkers_normal_pancreas,
-                              datasets = ['Normal', 'Pancreas'],
-                              threshold = 0.05,
-                              color = 'mediumslateblue',
-                              ax = ax3)
+#     plot_important_biomarkers(important_biomarkers = important_biomarkers_normal_pancreas,
+#                               datasets = ['Normal', 'Pancreas'],
+#                               threshold = 0.05,
+#                               color = 'mediumslateblue',
+#                               ax = ax3)
 
-    fig.suptitle("Important Biomarkers in Random Forest Classification", fontsize=14)
-    fig.tight_layout(pad=2.0)
-    plt.show()
+#     fig.suptitle("Important Biomarkers in Random Forest Classification", fontsize=14)
+#     fig.tight_layout(pad=2.0)
+#     plt.show()
