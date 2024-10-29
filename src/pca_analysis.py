@@ -2,7 +2,6 @@
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import pandas as pd
-import numpy as np
 
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -35,18 +34,18 @@ def cancer_dataframe_PCA(features: pd.DataFrame,
     features_PCA_reduced = pca.fit_transform(features_standardized)
 
     # Explained variance
-    explained_variance = pca.explained_variance_ratio_
-    print(f'Explained variance ratio: {explained_variance}')
-    print(f'Total variance explained by {len(explained_variance)} components: {sum(explained_variance):.2f}')
+    explained_variance_ratio = pca.explained_variance_ratio_
+    print(f'Explained variance ratio: {explained_variance_ratio}')
+    print(f'Total variance explained by {len(explained_variance_ratio)} components: {sum(explained_variance_ratio):.2f}')
 
     # Components dataframe
     principal_components = []
-    for i in range(len(explained_variance)):
+    for i in range(len(explained_variance_ratio)):
         principal_components.append("PC"+str(i+1))
     components = pca.components_.T
     # loadings = components * np.sqrt(pca.explained_variance_[:, np.newaxis]) 
     components_df = pd.DataFrame(components, columns = principal_components)
-
+    explained_variance = pca.explained_variance_
     return features_PCA_reduced, explained_variance, components_df
 
 

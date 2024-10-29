@@ -15,6 +15,8 @@ def rf_normal_cancers(categories,
                       cancer1_category_index, 
                       cancer2_category_index=None, 
                       cancer3_category_index=None, 
+                      selected_biomarkers = np.arange(39),
+                      test_size = 0.2,
                       iterations = 100, 
                       threshold = 0.05):
     # Initialize variables for resampling
@@ -48,21 +50,21 @@ def rf_normal_cancers(categories,
     for i in range(iterations):
         # Step 1: Randomly sample from Normal dataset to match the minimum sample size
         normal_subsampled_df = normal_df.sample(n=sample_size, random_state=i)
-        normal_biomarkers, normal_labels = feature_label_split(normal_subsampled_df)
+        normal_biomarkers, normal_labels = feature_label_split(normal_subsampled_df, selected_biomarkers = selected_biomarkers)
 
         # Step 2: Randomly sample from Cancer1 dataset to match the minimum sample size
         cancer_1_subsampled_df = cancer_1_df.sample(n=sample_size, random_state=i)
-        cancer_1_biomarkers, cancer_1_labels = feature_label_split(cancer_1_subsampled_df)
+        cancer_1_biomarkers, cancer_1_labels = feature_label_split(cancer_1_subsampled_df, selected_biomarkers = selected_biomarkers)
 
         # Step 3: Randomly sample from Cancer2 dataset (if present) to match the minimum sample size
         if cancer2_category_index is not None:
             cancer_2_subsampled_df = cancer_2_df.sample(n=sample_size, random_state=i)
-            cancer_2_biomarkers, cancer_2_labels = feature_label_split(cancer_2_subsampled_df)
+            cancer_2_biomarkers, cancer_2_labels = feature_label_split(cancer_2_subsampled_df, selected_biomarkers = selected_biomarkers)
             
         # Step 4: Randomly sample from Cancer3 dataset (if present) to match the minimum sample size
         if cancer3_category_index is not None:
             cancer_3_subsampled_df = cancer_3_df.sample(n=sample_size, random_state=i)
-            cancer_3_biomarkers, cancer_3_labels = feature_label_split(cancer_3_subsampled_df)
+            cancer_3_biomarkers, cancer_3_labels = feature_label_split(cancer_3_subsampled_df, selected_biomarkers = selected_biomarkers)
 
         # Step 4: Combine Normal, Cancer1, Cancer2 (if present) and  Cancer3 (if present) samples
         if cancer2_category_index is not None:
@@ -77,7 +79,7 @@ def rf_normal_cancers(categories,
             y = pd.concat([normal_labels, cancer_1_labels], ignore_index=True)
 
         # Step 5: Train-test split
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=i)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = test_size, random_state = i)
 
         # Step 6: Train RandomForestClassifier
         rf_normal_ovary_pancreas = RandomForestClassifier(random_state=i)

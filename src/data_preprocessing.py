@@ -1,6 +1,7 @@
 # We require the following packages:
 # openpyxl
 import pandas as pd
+import numpy as np
 
 def load_data(file_path = "../data/clinical_cancer_data.xlsx"):
     
@@ -31,7 +32,7 @@ def load_data(file_path = "../data/clinical_cancer_data.xlsx"):
     return categories, dfs
 
 
-def feature_label_split(df: pd.DataFrame) -> tuple:
+def feature_label_split(df: pd.DataFrame, selected_biomarkers = np.arange(39)) -> tuple:
     """
     Split the dataframe into biomarker levels and cancer label.
     
@@ -53,6 +54,7 @@ def feature_label_split(df: pd.DataFrame) -> tuple:
     - The third column is the AJCC Stages.
     - The columns from 4 to 43 are the biomarker levels.
     """
-    biomarker_levels = df.iloc[:, 4:43]
+    selected_features = selected_biomarkers + 4
+    biomarker_levels = df.iloc[:, selected_features]
     cancer_label = df.iloc[:, 2]
     return biomarker_levels, cancer_label
