@@ -73,7 +73,13 @@ def descriptive_statistics(categories, dfs, biomarker_index):
     plt.show()
     
 
-def identify_outliers_mad(values, threshold_factor=100):
+def coefficient_of_variation(values):
+    return np.std(values) / np.mean(values)
+
+# Any threshold_factor between 69 and 122 will work. 
+# At threshold_factor = 68, we have more than one category reported as unique in Q2 values of CA-125.
+# At threshold_factor = 123, we lose the uniqueness of Pancreas in Q3 values of CA19-9.
+def identify_outliers_mad(values, threshold_factor=122):
     """
     Identify outlier categories in the given list of Q2 values using the
     Median Absolute Deviation (MAD) approach.
@@ -84,7 +90,7 @@ def identify_outliers_mad(values, threshold_factor=100):
         List of Q2 values from the descriptive statistics calculation
     threshold_factor : int, optional
         Factor by which the MAD is multiplied to define the threshold for
-        outlier detection (default is 100)
+        outlier detection (default is 69)
 
     Returns
     -------
@@ -92,7 +98,6 @@ def identify_outliers_mad(values, threshold_factor=100):
         List of tuples, where each tuple contains the index of the outlier
         category in the input list and the corresponding Q2 value
     """
-
     # Calculate overall median value
     overall_median = np.median(values)
 
@@ -107,7 +112,7 @@ def identify_outliers_mad(values, threshold_factor=100):
     return outlier_with_indices
 
 
-def quantiles_across_categories(categories, dfs, biomarker_index, quantile_cut=0.75):
+def quantiles_across_categories(categories, dfs, biomarker_index, quantile_cut=0.5):
     """
     Calculate the quantiles for the given biomarker across all cancer types.
 
@@ -120,7 +125,7 @@ def quantiles_across_categories(categories, dfs, biomarker_index, quantile_cut=0
     biomarker_index : int
         Index of the biomarker of interest in the feature DataFrames
     quantile_cut : float, optional
-        Quantile to calculate (default is 0.75)
+        Quantile to calculate (default is 0.5)
 
     Returns
     -------
@@ -136,10 +141,10 @@ def quantiles_across_categories(categories, dfs, biomarker_index, quantile_cut=0
         Q_levels.append(float(Q_value))  # Append the median to the list
     return Q_levels
 
-def demo_outlier_identification_mad(categories, dfs, biomarker_index):
+def uniquely_high_level_identification(categories, dfs, biomarker_index):
     """
-    Demonstrate outlier identification using the Median Absolute Deviation (MAD)
-    approach on Q2 and Q3 values across different cancer types.
+    Demo of outlier identification using the Median Absolute Deviation (MAD) approach
+    for the given biomarker across all cancer types.
 
     Parameters
     ----------
@@ -154,22 +159,103 @@ def demo_outlier_identification_mad(categories, dfs, biomarker_index):
     -------
     None
     """
+    flag_Q2 = 0
+    flag_Q3 = 0
+    Q2_outliers_with_indices = []
+    Q3_outliers_with_indices = []
+    
     biomarker = feature_label_split(dfs[0])[0].columns[biomarker_index]
-    print(f"Biomarker {biomarker_index}: {biomarker}")
     
     Q2_levels = quantiles_across_categories(categories, dfs, biomarker_index, quantile_cut=0.5)
     Q2_levels_with_categories = [(categories[index], Q2_value) for index, Q2_value in enumerate(Q2_levels)]
-    print(f"Q2 values across cancer types: {Q2_levels_with_categories}")
-    Q2_outliers_with_indices = identify_outliers_mad(Q2_levels)
-    Q2_outliers_with_categories = [(categories[index], Q2_value) for index, Q2_value in Q2_outliers_with_indices]
-    print(f"Outlier categories with uniquely high Q2 levels: {Q2_outliers_with_categories}")
+    if coefficient_of_variation(Q2_levels) < 0.5:
+        # print("No outlier detection needed for Q2 values.")
+        pass
+    else:
+        Q2_outliers_with_indices = identify_outliers_mad(Q2_levels)
+        Q2_outliers_with_categories = [(categories[index], Q2_value) for index, Q2_value in Q2_outliers_with_indices]
+        if len(Q2_outliers_with_indices) == 0:
+            # print("No outlier found.")
+            pass
+        else:
+            flag_Q2 = 1
 
     Q3_levels = quantiles_across_categories(categories, dfs, biomarker_index, quantile_cut=0.75)
     Q3_levels_with_categories = [(categories[index], Q3_value) for index, Q3_value in enumerate(Q3_levels)]
-    print(f"Q3 values across cancer types: {Q3_levels_with_categories}")
-    Q3_outliers_with_indices = identify_outliers_mad(Q3_levels)
-    Q3_outliers_with_categories = [(categories[index], Q3_value) for index, Q3_value in Q3_outliers_with_indices]
-    print(f"Outlier categories with uniquely high Q3 levels: {Q3_outliers_with_categories}")
+    if coefficient_of_variation(Q3_levels) < 0.5:
+        # print("No outlier detection needed for Q3 values.")
+        pass
+    else:
+        Q3_outliers_with_indices = identify_outliers_mad(Q3_levels)
+        Q3_outliers_with_categories = [(categories[index], Q3_value) for index, Q3_value in Q3_outliers_with_indices]
+        if len(Q3_outliers_with_indices) == 0:
+            # print("No outlier found.")
+            pass
+        else:
+            flag_Q3 = 1
+
+    # if flag_Q2 == 0 and flag_Q3 == 0:
+    #     print("No outlier found.")
+    # if flag_Q2 == 1 and flag_Q3 == 0:
+    #     print("No outlier found in Q3 values.")
+    # if flag_Q2 == 0 and flag_Q3 == 1:
+    #     print("No outlier found in Q2 values.")
+    
+    if flag_Q2 == 1 and flag_Q3 == 1:
+        print(f"\nBiomarker {biomarker_index}: {biomarker}")
+        # print(f"Q2 values across cancer types: {Q2_levels_with_categories}")
+        print(f"Outlier categories with uniquely high Q2 levels: {Q2_outliers_with_categories}")
+        # print(f"Q3 values across cancer types: {Q3_levels_with_categories}")
+        print(f"Outlier categories with uniquely high Q3 levels: {Q3_outliers_with_categories}")
+        if len(Q2_outliers_with_indices) == 1 and len(Q3_outliers_with_indices) == 1:
+            return Q2_outliers_with_indices[0], Q2_outliers_with_indices, Q3_outliers_with_indices
+        else:
+            return None, Q2_outliers_with_indices, Q3_outliers_with_indices
+    else:
+        return None, Q2_outliers_with_indices, Q3_outliers_with_indices
+
+
+
+def higher_side_filtering_identification(categories, dfs, biomarker_index, category_index):
+    Q3_levels = quantiles_across_categories(categories, dfs, biomarker_index, quantile_cut=0.75)
+    biomarker = feature_label_split(dfs[0])[0].columns[biomarker_index]
+    higher_levels_in_categories = 0
+    rank = None
+    categories_indices_except_the_given_category_index = [c for c in range(len(categories)) if c not in [category_index]]
+    for i in categories_indices_except_the_given_category_index:
+        if Q3_levels[i] > Q3_levels[category_index]:
+            higher_levels_in_categories += 1
+    if higher_levels_in_categories in [0, 1, 2]:
+        print(f"\nBiomarker {biomarker_index}: {biomarker}")
+    if higher_levels_in_categories == 0:
+        rank = 1
+        print("The biomarker's Q3 level is the highest in the given category.")
+    elif higher_levels_in_categories == 1:
+        rank = 2
+        print("The biomarker's Q3 level is the second highest in the given category.")
+    elif higher_levels_in_categories == 2:
+        rank = 3
+        print("The biomarker's Q3 level is the third highest in the given category.")
+    
+    return rank
+    
+
+def cancer_biomarkers_uniquely_high(categories, dfs, cancer_important_biomarker_indices_in_RF):
+    cancer_biomarkers_uniquely_high = []
+    for i in cancer_important_biomarker_indices_in_RF:
+        high_level_found = uniquely_high_level_identification(categories, dfs, biomarker_index = i)[0]
+        if high_level_found is not None:
+            cancer_biomarkers_uniquely_high.append(i)
+    return cancer_biomarkers_uniquely_high
+
+def cancer_biomarkers_higher_side_filtering(categories, dfs, cancer_category_index, cancer_candidates_for_higher_side_filtering):
+    cancer_biomarkers_higher_side = []
+    for i in cancer_candidates_for_higher_side_filtering:
+        rank = higher_side_filtering_identification(categories, dfs, biomarker_index = i, category_index = cancer_category_index)
+        if rank is not None:
+            cancer_biomarkers_higher_side.append(i)
+    return cancer_biomarkers_higher_side
+
 
 # Debug code
 if __name__ == "__main__":
@@ -177,6 +263,9 @@ if __name__ == "__main__":
     # Biomarkers: AFP: 0, CA-125: 3, CA19-9: 5, Prolactin: 29, sHER2/sEGFR2/sErbB2: 33
 
     # descriptive_statistics(categories, dfs, biomarker_index = 0)
-    for i in [0, 3, 5, 29, 33]:
-        demo_outlier_identification_mad(categories, dfs, biomarker_index = i)
-        print("\n")
+    
+    # for i in range(39):
+    #     uniquely_high_level_identification(categories, dfs, biomarker_index = i)
+        
+    for i in [29, 18, 35, 31, 16, 37]:
+        higher_side_filtering_identification(categories, dfs, biomarker_index = i, category_index=6)

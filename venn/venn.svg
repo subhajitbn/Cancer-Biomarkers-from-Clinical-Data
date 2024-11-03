@@ -2,14 +2,14 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="297mm"
-   height="256.00101mm"
-   viewBox="0 0 297 256.00101"
+   width="228mm"
+   height="253.00101mm"
+   viewBox="0 0 228 253.00101"
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
    sodipodi:docname="venn.svg"
-   inkscape:export-filename="venn.png"
+   inkscape:export-filename="venn.pdf"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -28,14 +28,14 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.97386897"
-     inkscape:cx="567.32478"
-     inkscape:cy="529.33199"
+     inkscape:cx="566.81136"
+     inkscape:cy="70.338005"
      inkscape:window-width="1920"
      inkscape:window-height="991"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer3" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1">
     <linearGradient
@@ -59,110 +59,171 @@
        fx="25.435516"
        fy="15.95338"
        r="5.9262786"
-       gradientTransform="matrix(1,0,0,0.37495763,207.09315,60.880332)"
+       gradientTransform="matrix(1,0,0,0.37495763,148.95305,14.694277)"
        gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:label="Ovary"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-126.06076,10.323942)">
     <ellipse
        style="fill:#53ce03;fill-opacity:0.0873494;stroke:#000000;stroke-width:1.22559;stroke-dasharray:2.45116, 1.22559"
        id="path1"
-       cx="185.09673"
-       cy="71.080193"
+       cx="174.5011"
+       cy="61.571301"
        inkscape:label="Ovary path"
        rx="36.595791"
        ry="36.49995" />
     <text
        xml:space="preserve"
        style="font-size:7.05556px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:url(#radialGradient14);fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       x="232.45151"
-       y="68.006462"
+       x="174.31142"
+       y="21.820406"
        id="text13"
        inkscape:label="Ovary title"><tspan
          sodipodi:role="line"
          id="tspan13"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Calibri;-inkscape-font-specification:Calibri;fill:url(#radialGradient14);fill-opacity:0.0873494;stroke-width:0.3;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0"
-         x="232.45151"
-         y="68.006462">Ovary</tspan></text>
+         x="174.31142"
+         y="21.820406">Ovary</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.9389px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
-       x="191.58267"
-       y="68.043137"
+       x="174.19498"
+       y="45.221794"
        id="text1"
        inkscape:label="CA-125"><tspan
          sodipodi:role="line"
          id="tspan1"
-         style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
-         x="191.58267"
-         y="68.043137">CA-125</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Calibri;-inkscape-font-specification:Calibri;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
+         x="174.19498"
+         y="45.221794">CA-125<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Calibri;-inkscape-font-specification:Calibri;baseline-shift:super"
+   id="tspan15">*</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.9389px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
-       x="161.56339"
-       y="77.035568"
+       x="172.08569"
+       y="84.23851"
+       id="text1-8"
+       inkscape:label="HE4"><tspan
+         sodipodi:role="line"
+         style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
+         x="172.08569"
+         y="84.23851"
+         id="tspan14">HE4 <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Calibri;-inkscape-font-specification:Calibri;baseline-shift:super"
+   id="tspan23">(a)</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
+       x="173.51743"
+       y="64.266487"
        id="text2"
        inkscape:label="Prolactin"><tspan
          sodipodi:role="line"
          id="tspan2"
          style="stroke-width:0.4"
-         x="161.56339"
-         y="77.035568">Prolactin</tspan><tspan
+         x="173.51743"
+         y="64.266487">Prolactin</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.4"
-         x="161.56339"
-         y="77.035568"
+         x="173.51743"
+         y="64.266487"
          id="tspan3" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:normal;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:start;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;white-space:pre;fill:#1a1a1a;stroke:#000000;stroke-width:0.264583;-inkscape-stroke:none"
+       x="131.59731"
+       y="221.42139"
+       id="text25"><tspan
+         sodipodi:role="line"
+         style="font-size:4.93889px;text-align:start;baseline-shift:baseline;text-anchor:start;stroke-width:0.264583"
+         x="131.59731"
+         y="221.42139"
+         id="tspan31"><tspan
+   style="font-size:7.05556px"
+   id="tspan34">* </tspan>Present in uniquely high levels. </tspan><tspan
+         sodipodi:role="line"
+         style="font-size:4.93889px;text-align:start;baseline-shift:baseline;text-anchor:start;stroke-width:0.264583"
+         x="131.59731"
+         y="228.38875"
+         id="tspan32"><tspan
+   style="font-size:3.52778px;baseline-shift:super"
+   id="tspan35">(a)</tspan> Might be a shared biomarker with Pancreas.</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:4.93889px;text-align:start;baseline-shift:baseline;text-anchor:start;stroke-width:0.264583"
+         x="131.59731"
+         y="234.56236"
+         id="tspan39"><tspan
+   style="font-size:3.52778px;baseline-shift:super"
+   id="tspan36">(b)</tspan> Might be a shared biomarker with Liver</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Pancreas">
+     inkscape:label="Pancreas"
+     transform="translate(-25.538172,-13.855817)">
     <circle
        style="fill:#fdff13;fill-opacity:0.0873494;stroke:#000000;stroke-width:1.224;stroke-dasharray:2.448, 1.224"
        id="path1-8"
-       cx="78.527138"
-       cy="189.22462"
+       cx="73.908531"
+       cy="172.38029"
        r="36.500645"
        inkscape:label="Pancreas path" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#1325ff;fill-opacity:0.0873494;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0"
-       x="76.843491"
-       y="232.25938"
+       x="72.224892"
+       y="215.41505"
        id="text7"
        inkscape:label="Pancreas title"><tspan
          sodipodi:role="line"
          id="tspan6"
          style="stroke-width:0.3"
-         x="76.843491"
-         y="232.25938">Pancreas</tspan></text>
+         x="72.224892"
+         y="215.41505">Pancreas</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
+       x="72.626984"
+       y="189.4794"
+       id="text10"
+       inkscape:label="GDF15"><tspan
+         id="tspan10"
+         style="stroke-width:0.4"
+         x="72.626984"
+         y="189.4794"
+         sodipodi:role="line">GDF15 <tspan
+   style="font-size:3.52778px;baseline-shift:super"
+   id="tspan24">(b)</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.9389px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="71.464417"
-       y="178.8532"
+       x="72.279472"
+       y="156.30353"
        id="text4"
        inkscape:label="CA19-9"><tspan
          sodipodi:role="line"
          id="tspan4"
          style="stroke-width:0.4;stroke-miterlimit:4"
-         x="71.464417"
-         y="178.8532">CA19-9</tspan></text>
+         x="72.279472"
+         y="156.30353">CA19-9<tspan
+   style="font-size:7.05556px;baseline-shift:super"
+   id="tspan18">*</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.9389px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
-       x="70.695999"
-       y="194.41399"
+       x="75.857971"
+       y="172.136"
        id="text5"
        inkscape:label="sHER2/sEGFR2/sErbB2"><tspan
          sodipodi:role="line"
          id="tspan5"
          style="stroke-width:0.4;stroke-dasharray:none"
-         x="70.695999"
-         y="194.41399">sHER2/sEGFR2/sErbB2</tspan></text>
+         x="75.857971"
+         y="172.136">sHER2/sEGFR2/sErbB2</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -170,160 +231,114 @@
      inkscape:label="Liver"
      transform="translate(26.703104,14.984476)">
     <ellipse
-       style="fill:#ff1316;fill-opacity:0.0873494;stroke:#000000;stroke-width:1.18352;stroke-dasharray:2.36704, 1.18352"
+       style="fill:#ff1316;fill-opacity:0.0873494;stroke:#000000;stroke-width:1.332;stroke-dasharray:2.66399, 1.332"
        id="path1-8-5"
-       cx="68.346199"
-       cy="181.9584"
+       cx="94.018639"
+       cy="137.69246"
        inkscape:label="Liver path"
-       rx="44.438698"
-       ry="28.030397"
-       transform="matrix(0.99393256,-0.10999125,0.25988595,0.96563932,0,0)" />
+       rx="40.404457"
+       ry="39.049625"
+       transform="matrix(0.98508937,-0.17204342,0.16810546,0.98576902,0,0)" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#1325ff;fill-opacity:0.0873494;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0"
-       x="119.68371"
-       y="201.9062"
+       x="105.28454"
+       y="166.04408"
        id="text8"
        inkscape:label="Liver title"><tspan
          sodipodi:role="line"
          id="tspan7"
          style="stroke-width:0.3"
-         x="119.68371"
-         y="201.9062">Liver</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:5.59507px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.453143;stroke-dasharray:none;stroke-opacity:1"
-       x="99.548141"
-       y="204.07016"
-       id="text6"
-       inkscape:label="AFP"
-       transform="scale(1.1523018,0.86782821)"><tspan
-         sodipodi:role="line"
-         style="stroke-width:0.453143"
-         x="99.548141"
-         y="204.07016"
-         id="tspan8">AFP</tspan></text>
+         x="105.28454"
+         y="166.04408">Liver</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.9389px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
-       x="79.340843"
-       y="172.32147"
-       id="text10"
-       inkscape:label="HGF, GDF15"><tspan
-         id="tspan10"
-         style="stroke-width:0.4"
-         x="79.340843"
-         y="172.32147"
-         sodipodi:role="line">GDF15</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:4.9389px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
-       x="110.52274"
-       y="147.50645"
+       x="133.0724"
+       y="95.886742"
        id="text9"
        inkscape:label="OPN"><tspan
          id="tspan9"
          style="stroke-width:0.4"
-         x="110.52274"
-         y="147.50645"
+         x="133.0724"
+         y="95.886742"
          sodipodi:role="line">OPN</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#1325ff;fill-opacity:0.0873494;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0"
-       x="112.10623"
-       y="153.95859"
+       x="135.19926"
+       y="114.83629"
        id="text16"
        inkscape:label="Myeloperoxidase"><tspan
          sodipodi:role="line"
          id="tspan16"
          style="font-size:4.93889px;stroke-width:0.4;stroke-dasharray:none"
-         x="112.10623"
-         y="153.95859">Myeloperoxidase</tspan></text>
+         x="135.19926"
+         y="114.83629">Myeloperoxidase</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.9389px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ff29f8;fill-opacity:0.0873494;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0"
-       x="149.26843"
-       y="166.75029"
+       x="133.23915"
+       y="105.07832"
        id="text19"
        inkscape:label="HGF"><tspan
          sodipodi:role="line"
          id="tspan19"
          style="stroke-width:0.4"
-         x="149.26843"
-         y="166.75029">HGF</tspan></text>
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer6"
-     inkscape:label="Lung">
-    <circle
-       style="fill:#ff29f8;fill-opacity:0.0873494;stroke:#000000;stroke-width:1.224;stroke-dasharray:2.448, 1.224"
-       id="path1-8-5-88"
-       cx="138.17863"
-       cy="84.667442"
-       r="36.500645"
-       inkscape:label="Lung path" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#1325ff;fill-opacity:0.0873494;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0"
-       x="91.204849"
-       y="85.265648"
-       id="text8-5"
-       inkscape:label="Lung title"><tspan
-         sodipodi:role="line"
-         style="stroke-width:0.3"
-         x="91.204849"
-         y="85.265648"
-         id="tspan17">Lung</tspan></text>
+         x="133.23915"
+         y="105.07832">HGF</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.9389px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ff29f8;fill-opacity:0.0873494;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0"
-       x="135.62872"
-       y="115.45728"
-       id="text18"
-       inkscape:label="IL-6"><tspan
+       x="100.09386"
+       y="138.4953"
+       id="text11"
+       inkscape:label="HGF"><tspan
          sodipodi:role="line"
-         id="tspan18"
+         id="tspan8"
          style="stroke-width:0.4"
-         x="135.62872"
-         y="115.45728">IL-6</tspan></text>
+         x="100.09386"
+         y="138.4953">AFP<tspan
+   style="font-size:7.05556px;baseline-shift:super"
+   id="tspan21">*</tspan></tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Esophagus">
     <ellipse
-       style="fill:#1325ff;fill-opacity:0.0873494;stroke:#000000;stroke-width:1.31566;stroke-dasharray:2.63133, 1.31566;stroke-opacity:1"
+       style="fill:#1325ff;fill-opacity:0.0873494;stroke:#000000;stroke-width:1.3734;stroke-dasharray:2.74681, 1.3734;stroke-opacity:1"
        id="path1-8-5-8"
-       cx="141.34248"
-       cy="141.6398"
+       cx="160.08859"
+       cy="99.664742"
        inkscape:label="Esophagus path"
-       rx="41.353477"
-       ry="37.223347" />
+       rx="41.324635"
+       ry="40.590591" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#1325ff;fill-opacity:0.0873494;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0"
-       x="84.527832"
-       y="131.97864"
+       x="158.6972"
+       y="55.092426"
        id="text12"
        inkscape:label="Esophagus title"><tspan
          sodipodi:role="line"
          id="tspan12"
          style="stroke-width:0.3"
-         x="84.527832"
-         y="131.97864">Esophagus</tspan></text>
+         x="158.6972"
+         y="55.092426">Esophagus</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:4.9389px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#1325ff;fill-opacity:0.0873494;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
-       x="137.74191"
-       y="139.08664"
-       id="text11"
-       inkscape:label="TIMP-1"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:normal;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:start;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:start;white-space:pre;fill:#1a1a1a;stroke:#000000;stroke-width:0.264583;-inkscape-stroke:none"
+       x="154.04408"
+       y="78.787979"
+       id="text37"><tspan
          sodipodi:role="line"
-         id="tspan11"
-         style="stroke-width:0.4"
-         x="137.74191"
-         y="139.08664">TIMP-1</tspan></text>
+         id="tspan37"
+         style="font-size:4.93889px;stroke-width:0.264583"
+         x="154.04408"
+         y="78.787979">IL-6 <tspan
+   style="font-size:3.52778px;baseline-shift:super"
+   id="tspan38">(b)</tspan></tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -332,45 +347,34 @@
     <ellipse
        style="fill:#93c4c1;fill-opacity:0.213675;stroke:#000000;stroke-width:1.24771;stroke-dasharray:2.49543, 1.24771;stroke-opacity:1"
        id="path1-8-5-5"
-       cx="201.09422"
-       cy="165.07788"
+       cx="178.81624"
+       cy="129.75912"
        inkscape:label="Stomach path"
        rx="37.545361"
        ry="36.873055" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#93c4c1;fill-opacity:0.0873494;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0"
-       x="213.62485"
-       y="209.78264"
+       x="202.48586"
+       y="170.93201"
        id="text20"
        inkscape:label="Stomach title"><tspan
          sodipodi:role="line"
          id="tspan20"
          style="font-size:7.05556px;stroke-width:0.3;stroke-dasharray:none"
-         x="213.62485"
-         y="209.78264">Stomach</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.9389px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ff29f8;fill-opacity:0.0873494;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0"
-       x="173.48598"
-       y="152.9395"
-       id="text18-2"
-       inkscape:label="IL-8"><tspan
-         sodipodi:role="line"
-         id="tspan18-1"
-         style="stroke-width:0.4"
-         x="173.48598"
-         y="152.9395">IL-8</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#93c4c1;fill-opacity:0.213675;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       x="149.42548"
-       y="16.300962"
-       id="text22"><tspan
-         sodipodi:role="line"
-         id="tspan22"
-         style="font-size:9.87778px;fill:#000000;fill-opacity:1;stroke-width:0.4;stroke-dasharray:none;paint-order:normal"
-         x="149.42548"
-         y="16.300962">Venn Diagram of Selected Biomarkers</tspan></text>
+         x="202.48586"
+         y="170.93201">Stomach</tspan></text>
   </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#93c4c1;fill-opacity:0.213675;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     x="114.10673"
+     y="11.95404"
+     id="text22"
+     inkscape:label="Title of the Venn Diagram"><tspan
+       sodipodi:role="line"
+       id="tspan22"
+       style="font-size:9.87778px;fill:#000000;fill-opacity:1;stroke-width:0.4;stroke-dasharray:none;paint-order:normal"
+       x="114.10673"
+       y="11.95404">Venn Diagram of Selected Biomarkers</tspan></text>
 </svg>
