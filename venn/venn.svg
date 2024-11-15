@@ -29,13 +29,13 @@
      inkscape:document-units="mm"
      inkscape:zoom="0.97386897"
      inkscape:cx="566.81136"
-     inkscape:cy="398.9243"
+     inkscape:cy="397.89747"
      inkscape:window-width="1920"
      inkscape:window-height="991"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer7" />
   <defs
      id="defs1">
     <linearGradient
@@ -68,7 +68,7 @@
      id="layer1"
      transform="translate(-126.06076,10.323942)">
     <ellipse
-       style="fill:#53ce03;fill-opacity:0.0873494;stroke:#000000;stroke-width:1.22559;stroke-dasharray:2.45116, 1.22559"
+       style="fill:#42a402;fill-opacity:0.08734939;stroke:#000000;stroke-width:1.22559;stroke-dasharray:2.45116, 1.22559"
        id="path1"
        cx="174.5011"
        cy="61.571301"
@@ -171,8 +171,7 @@
        cx="73.908531"
        cy="172.38029"
        r="36.500645"
-       inkscape:label="Pancreas path"
-       sodipodi:insensitive="true" />
+       inkscape:label="Pancreas path" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:0px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#1325ff;fill-opacity:0.0873494;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0"
@@ -358,7 +357,7 @@
      id="layer7"
      inkscape:label="Stomach">
     <ellipse
-       style="fill:#93c4c1;fill-opacity:0.213675;stroke:#000000;stroke-width:1.24771;stroke-dasharray:2.49543, 1.24771;stroke-opacity:1"
+       style="fill:#93c4c1;fill-opacity:0.30000001;stroke:#000000;stroke-width:1.24771;stroke-dasharray:2.49543, 1.24771;stroke-opacity:1"
        id="path1-8-5-5"
        cx="178.81624"
        cy="129.75912"

@@ -58,3 +58,31 @@ def feature_label_split(df: pd.DataFrame, selected_biomarkers = np.arange(39)) -
     biomarker_levels = df.iloc[:, selected_features]
     cancer_label = df.iloc[:, 2]
     return biomarker_levels, cancer_label
+
+def feature_label_split_stage_I(df: pd.DataFrame, selected_biomarkers = np.arange(39)) -> tuple:
+    """
+    Split the dataframe into biomarker levels and cancer label for stage I data.
+    
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The dataframe to split.
+    
+    Returns
+    -------
+    tuple
+        A tuple containing the biomarker levels and the cancer label for stage I data.
+    """
+    # Filter the dataframe to only include stage I data
+    stage_I_df = df[df.iloc[:, 3] == 'I']
+    return feature_label_split(stage_I_df, selected_biomarkers)
+
+
+# Debug code
+if __name__ == "__main__":
+    categories, dfs = load_data()
+    cancer_category_index = 3
+    print(f"Tumor type: {categories[cancer_category_index]}")
+    print(f"Unique valuse of stages: {dfs[cancer_category_index].iloc[:, 3].unique()}")
+    print(f"Number of records: {dfs[cancer_category_index].shape[0]}")
+    print(f"Number of stage I records: {feature_label_split_stage_I(dfs[cancer_category_index])[0].shape[0]}")
