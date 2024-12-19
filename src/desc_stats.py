@@ -216,7 +216,7 @@ def uniquely_high_level_identification(categories, dfs, biomarker_index):
 
 
 
-def higher_side_filtering_identification(categories, dfs, biomarker_index, category_index):
+def higher_side_filtering_identification(categories, dfs, biomarker_index, category_index, debug = True):
     Q3_levels = quantiles_across_categories(categories, dfs, biomarker_index, quantile_cut=0.75)
     biomarker = feature_label_split(dfs[0])[0].columns[biomarker_index]
     higher_levels_in_categories = 0
@@ -226,16 +226,16 @@ def higher_side_filtering_identification(categories, dfs, biomarker_index, categ
         if Q3_levels[i] > Q3_levels[category_index]:
             higher_levels_in_categories += 1
     if higher_levels_in_categories in [0, 1, 2]:
-        print(f"\nBiomarker {biomarker_index}: {biomarker}")
-    if higher_levels_in_categories == 0:
-        rank = 1
-        print("The biomarker's Q3 level is the highest in the given category.")
-    elif higher_levels_in_categories == 1:
-        rank = 2
-        print("The biomarker's Q3 level is the second highest in the given category.")
-    elif higher_levels_in_categories == 2:
-        rank = 3
-        print("The biomarker's Q3 level is the third highest in the given category.")
+        rank = higher_levels_in_categories + 1
+    if debug:
+        if higher_levels_in_categories in [0, 1, 2]:
+            print(f"\nBiomarker {biomarker_index}: {biomarker}")
+        if higher_levels_in_categories == 0:
+            print("The biomarker's Q3 level is the highest in the given category.")
+        elif higher_levels_in_categories == 1:
+            print("The biomarker's Q3 level is the second highest in the given category.")
+        elif higher_levels_in_categories == 2:
+            print("The biomarker's Q3 level is the third highest in the given category.")
     
     return rank
     

@@ -7,6 +7,9 @@ from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Permutation importance calculation
+from sklearn.inspection import permutation_importance
+
 # Project imports
 from data_preprocessing import load_data, feature_label_split
 
@@ -18,7 +21,8 @@ def rf_normal_cancers(categories,
                       selected_biomarkers = np.arange(39),
                       test_size = 0.2,
                       iterations = 100, 
-                      threshold = 0.05):
+                      threshold = 0.05,
+                      debug = True):
     # Initialize variables for resampling
     feature_importance_list = []  # To store feature importance scores
     accuracies = []  # To store accuracies
@@ -91,6 +95,10 @@ def rf_normal_cancers(categories,
         accuracies.append(accuracy)  # Store accuracy for this iteration
 
         # Step 8: Get feature importance scores and store them
+        # Permutation importance
+        # result = permutation_importance(rf_normal_ovary_pancreas, X_test, y_test, n_repeats=10, random_state=i, n_jobs=-1)
+        # importance = result.importances_mean
+        # MDI importance
         importance = rf_normal_ovary_pancreas.feature_importances_
         feature_importance_list.append(importance)
         
@@ -105,18 +113,22 @@ def rf_normal_cancers(categories,
     important_biomarkers = feature_importance_df[feature_importance_df['Importance'] >= threshold]
 
     # Step 12: Print results
-    if cancer2_category_index is not None:
-        if cancer3_category_index is not None:
-            print(f"Random forest classification: {categories[5]} + {categories[cancer1_category_index]} + {categories[cancer2_category_index]} + {categories[cancer3_category_index]}")
+    if debug:
+        if cancer2_category_index is not None:
+            if cancer3_category_index is not None:
+                print(f"Random forest classification: {categories[5]} + {categories[cancer1_category_index]} + {categories[cancer2_category_index]} + {categories[cancer3_category_index]}")
+            else:
+                print(f"Random forest classification: {categories[5]} + {categories[cancer1_category_index]} + {categories[cancer2_category_index]}")
         else:
-            print(f"Random forest classification: {categories[5]} + {categories[cancer1_category_index]} + {categories[cancer2_category_index]}")
-    else:
-        print(f"Random forest classification: {categories[5]} + {categories[cancer1_category_index]}")
-    print(f"\nAverage Accuracy over {iterations} iterations: {np.mean(accuracies):.4f}")
-    print(f"\nBiomarkers with Importance >= {threshold}:")
-    print(important_biomarkers)
+            print(f"Random forest classification: {categories[5]} + {categories[cancer1_category_index]}")
+        print(f"\nAverage Accuracy over {iterations} iterations: {np.mean(accuracies):.4f}")
+        print(f"\nBiomarkers with Importance >= {threshold}:")
+        print(important_biomarkers)
 
     return important_biomarkers
+
+
+
 
 def plot_important_biomarkers(important_biomarkers, 
                               datasets = ['Normal', 'Ovary', 'Pancreas'], 

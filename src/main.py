@@ -50,7 +50,8 @@ important_biomarkers_normal_ovary = rf_normal_cancers(categories = categories,
                                                       dfs = dfs, 
                                                       cancer1_category_index = 6, 
                                                       iterations = 100,
-                                                      threshold = 0.04)
+                                                      threshold = 0.04,
+                                                      debug=False)
 
 # %% [markdown]
 # And here's the list of the biomarker indices.
@@ -139,7 +140,8 @@ important_biomarkers_normal_pancreas = rf_normal_cancers(categories = categories
                                                          dfs = dfs, 
                                                          cancer1_category_index = 7, 
                                                          iterations = 100, 
-                                                         threshold = 0.04)
+                                                         threshold = 0.04,
+                                                         debug=False)
 
 # %%
 pancreas_important_biomarker_indices_in_RF = list(important_biomarkers_normal_pancreas.index)
@@ -206,7 +208,8 @@ important_biomarkers_normal_liver = rf_normal_cancers(categories = categories,
                                                       dfs = dfs,
                                                       cancer1_category_index = 3,
                                                       iterations = 100,
-                                                      threshold = 0.04)
+                                                      threshold = 0.04,
+                                                      debug=False)
 
 # %%
 liver_important_biomarker_indices_in_RF = list(important_biomarkers_normal_liver.index)
@@ -270,7 +273,8 @@ rf_normal_cancers(categories = categories,
                   selected_biomarkers = np.array(liver_finalized_biomarkers),
                   test_size = 0.2,
                   iterations = 100,
-                  threshold = 0.01)
+                  threshold = 0.01,
+                  debug=False)
 
 # %% [markdown]
 # ### 2.4.2. Normal + Ovary with `CA-125`, `Prolactin` and `HE4`
@@ -283,7 +287,8 @@ rf_normal_cancers(categories = categories,
                   selected_biomarkers = np.array(ovary_finalized_biomarkers),
                   test_size = 0.2,
                   iterations = 100,
-                  threshold = 0.01)
+                  threshold = 0.01,
+                  debug=False)
 
 # %% [markdown]
 # ### 2.4.3. Normal + Pancreas with `CA19-9`, `sHER2/sEGFR2/sErbB2`, `Midkine` and `GDF15`
@@ -296,7 +301,8 @@ rf_normal_cancers(categories = categories,
                   selected_biomarkers = np.array(pancreas_finalized_biomarkers),
                   test_size = 0.2,
                   iterations = 100,
-                  threshold = 0.05)
+                  threshold = 0.05,
+                  debug=False)
 
 # %% [markdown]
 # ### 2.4.4. Normal + Liver + Ovary + Pancreas
@@ -311,7 +317,8 @@ rf_normal_cancers(categories = categories,
                   selected_biomarkers = np.array(liver_ovary_pancreas_finalized_biomarkers),
                   test_size = 0.2,
                   iterations = 100,
-                  threshold = 0.05)
+                  threshold = 0.05,
+                  debug=False)
 
 # %% [markdown]
 # # 3. Analysis of `Breast` and `Colorectum` samples, taken together with random subsamples of `Normal` samples
@@ -329,7 +336,8 @@ important_biomarkers_normal_breast = rf_normal_cancers(categories = categories,
                                                        dfs = dfs,
                                                        cancer1_category_index = 0,
                                                        iterations = 100,
-                                                       threshold = 0.04)
+                                                       threshold = 0.04,
+                                                       debug=False)
 
 # %% [markdown]
 # And here's list of biomarkers that were selected by random forest classifier for `Normal + Breast` samples.
@@ -376,7 +384,8 @@ important_biomarkers_normal_colorectum = rf_normal_cancers(categories = categori
                                                            dfs = dfs,
                                                            cancer1_category_index = 1,
                                                            iterations = 100,
-                                                           threshold = 0.04)
+                                                           threshold = 0.04,
+                                                           debug=False)
 
 # %%
 colorectum_important_biomarker_indices_in_RF = list(important_biomarkers_normal_colorectum.index)
@@ -431,7 +440,8 @@ important_biomarkers_normal_esophagus = rf_normal_cancers(categories = categorie
                                                           dfs = dfs,
                                                           cancer1_category_index = 2,
                                                           iterations = 100,
-                                                          threshold = 0.04)
+                                                          threshold = 0.04,
+                                                          debug=False)
 
 # %%
 esophagus_important_biomarker_indices_in_RF = list(important_biomarkers_normal_esophagus.index)
@@ -490,7 +500,8 @@ important_biomarkers_normal_lung = rf_normal_cancers(categories = categories,
                                                      dfs = dfs,
                                                      cancer1_category_index = 4,
                                                      iterations = 100,
-                                                     threshold = 0.04)
+                                                     threshold = 0.04,
+                                                     debug=False)
 
 # %%
 lung_important_biomarker_indices_in_RF = list(important_biomarkers_normal_lung.index)
@@ -546,7 +557,8 @@ important_biomarkers_normal_stomach = rf_normal_cancers(categories = categories,
                                                         dfs = dfs,
                                                         cancer1_category_index = 8,
                                                         iterations = 100,
-                                                        threshold = 0.04)
+                                                        threshold = 0.04,
+                                                        debug=False)
 
 # %%
 stomach_important_biomarker_indices_in_RF = list(important_biomarkers_normal_stomach.index)
