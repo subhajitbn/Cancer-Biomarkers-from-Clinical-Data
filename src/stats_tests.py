@@ -93,6 +93,68 @@ def find_shared_nature_of_biomarkers(categories, dfs, cancer_category_index, can
     return cancer_shared_nature_of_biomarkers
 
 
+
+
+
+def heatmap_full_ywtest(cancer_category_index, biomarker_index, categories, dfs, test_type = 'ywtest', p_threshold = 0.05):
+    test_dict = {'ywtest': ywtest, 'utest': utest}
+    testfunction = test_dict[test_type]
+    
+    biomarker_levels = feature_label_split(dfs[0])[0]
+    biomarkers = biomarker_levels.columns
+    biomarker = biomarkers[biomarker_index]
+    
+    p_df = pd.DataFrame(index = [biomarker])
+    
+    main_cancer_features = feature_label_split(dfs[cancer_category_index])[0]
+    for i in range(9):
+        if i != cancer_category_index:
+            other_type_features = feature_label_split(dfs[i])[0]
+            p_value = testfunction(main_cancer_features, other_type_features, biomarker_index = biomarker_index)
+            p_df[categories[i]] = [p_value]
+    
+    # Find columns where the value in the first row is greater than 0.05
+    categories_where_p_greater_than_threshold = list(p_df.columns[p_df.iloc[0] > p_threshold])
+
+    # Get the column indices (locations)
+    # categories_locations_where_p_greater_than_threshold = [p_df.columns.get_loc(col) for col in categories_where_p_greater_than_threshold]
+
+    # has_p_values_greater_than_threshold = (p_df.loc[categories[cancer_category_index]] > p_threshold).any()        
+    return categories_where_p_greater_than_threshold, p_df
+def heatmap_shared_nature(categories, dfs, cancer_category_index, cancer_selected_biomarkers, p_threshold = 0.05):
+    
+    biomarker_levels = feature_label_split(dfs[0])[0]
+    biomarkers = biomarker_levels.columns
+    
+    cancer_shared_nature_of_biomarkers = []
+    merged_p_df_list = []
+    for i in cancer_selected_biomarkers:
+        categories_locations_where_p_greater_than_threshold, p_df = heatmap_full_ywtest(cancer_category_index = cancer_category_index,
+                                                                                biomarker_index = i,
+                                                                                categories = categories,
+                                                                                dfs = dfs,
+                                                                                p_threshold = p_threshold)
+        # if len(categories_locations_where_p_greater_than_threshold) < 3:
+            # cancer_shared_nature_of_biomarkers.append((i, categories_locations_where_p_greater_than_threshold))
+        
+        # if len(categories_locations_where_p_greater_than_threshold) == 0:
+        #     print(f"\nBiomarker {i}: {biomarkers[i]}")
+        # elif len(categories_locations_where_p_greater_than_threshold) in [1, 2]:
+        #     print(f"\nBiomarker {i}: {biomarkers[i]} didn't pass the p-value cutoff for one or two categories.")
+        # else:
+        #     print(f"\nBiomarker {i}: {biomarkers[i]} didn't pass the p-value cutoff for three or more categories. It is dropped.")
+        if len(categories_locations_where_p_greater_than_threshold) <= 2:
+            merged_p_df_list.append(p_df)
+        
+    merged_p_df = pd.concat(merged_p_df_list, axis = 0)
+    merged_p_df.name = categories[cancer_category_index]
+        
+    return merged_p_df
+
+
+
+
+
 if __name__ == "__main__":
     categories, dfs = load_data()
     cancer_1_features, _ = feature_label_split(dfs[6])
