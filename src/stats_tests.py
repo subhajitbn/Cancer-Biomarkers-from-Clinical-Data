@@ -94,8 +94,7 @@ def find_shared_nature_of_biomarkers(categories, dfs, cancer_category_index, can
 
 
 
-
-
+# The following two functions, namely `heatmap_full_ywtest` and `heatmap_shared_nature` are for heatmap generation in the paper
 def heatmap_full_ywtest(cancer_category_index, biomarker_index, categories, dfs, test_type = 'ywtest', p_threshold = 0.05):
     test_dict = {'ywtest': ywtest, 'utest': utest}
     testfunction = test_dict[test_type]
