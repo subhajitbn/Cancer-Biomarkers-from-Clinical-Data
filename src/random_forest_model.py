@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, roc_curve, auc
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -22,10 +22,15 @@ def rf_normal_cancers(categories,
                       test_size = 0.2,
                       iterations = 100, 
                       threshold = 0.05,
-                      debug = True):
+                      debug = True,
+                      roc = False,
+                      save_feature_importances_list = False):
     # Initialize variables for resampling
     feature_importance_list = []  # To store feature importance scores
     accuracies = []  # To store accuracies
+    auc_scores = []
+    fpr_values = []
+    tpr_values = []
 
     # Cancer1 samples (resampled in each iteration)
     cancer_1_df = dfs[cancer1_category_index]  # Cancer1 dataset
@@ -83,7 +88,7 @@ def rf_normal_cancers(categories,
             y = pd.concat([normal_labels, cancer_1_labels], ignore_index=True)
 
         # Step 5: Train-test split
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = test_size, random_state = i)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = test_size, random_state = i, stratify=y)
 
         # Step 6: Train RandomForestClassifier
         rf_normal_ovary_pancreas = RandomForestClassifier(random_state=i)
@@ -93,6 +98,21 @@ def rf_normal_cancers(categories,
         y_pred = rf_normal_ovary_pancreas.predict(X_test)
         accuracy = accuracy_score(y_test, y_pred)
         accuracies.append(accuracy)  # Store accuracy for this iteration
+        
+        # Step 8: Calculate AUC for this iteration
+        if roc:
+            pos_label = categories[cancer1_category_index]
+            # Predicted probabilities of the positive class
+            if cancer1_category_index > 5: 
+                y_pred_proba = rf_normal_ovary_pancreas.predict_proba(X_test)[:, 1]
+            else:
+                y_pred_proba = rf_normal_ovary_pancreas.predict_proba(X_test)[:, 0] 
+            fpr, tpr, _ = roc_curve(y_test, y_pred_proba, pos_label=pos_label)
+            roc_auc = auc(fpr, tpr)
+            auc_scores.append(roc_auc)  # Store AUC for this iteration
+            # Interpolate TPR values to align with mean FPR
+            fpr_values.append(fpr)
+            tpr_values.append(tpr)
 
         # Step 8: Get feature importance scores and store them
         # Permutation importance
@@ -101,6 +121,10 @@ def rf_normal_cancers(categories,
         # MDI importance
         importance = rf_normal_ovary_pancreas.feature_importances_
         feature_importance_list.append(importance)
+    
+    if save_feature_importances_list:
+        feature_importance_list_df = pd.DataFrame(feature_importance_list)
+        feature_importance_list_df.to_csv(f"feature_importance_list_{categories[5]}_{categories[cancer1_category_index]}.csv", index=False)
         
     # Step 9: Average feature importance scores across all iterations
     average_importance = np.mean(feature_importance_list, axis=0)
@@ -124,6 +148,35 @@ def rf_normal_cancers(categories,
         print(f"\nAverage Accuracy over {iterations} iterations: {np.mean(accuracies):.4f}")
         print(f"\nBiomarkers with Importance >= {threshold}:")
         print(important_biomarkers)
+    
+    # Step 10: Plot 5 ROC curves
+    if roc:
+        print(f"Model classes: {rf_normal_ovary_pancreas.classes_}")
+        # Select specific iterations to display ROC curves
+        selected_iterations = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]  # Iteration indices to plot
+
+        plt.figure(figsize=(10, 8))
+        for idx in selected_iterations:
+            if idx < len(fpr_values):  # Ensure the selected index is within bounds
+                fpr = fpr_values[idx]
+                tpr = tpr_values[idx]
+                roc_auc = auc(fpr, tpr)
+                plt.plot(fpr, tpr, lw=2, label=f"Iteration {idx} (AUC = {roc_auc:.3f})")
+            else:
+                print(f"Iteration {idx} is out of bounds and will be skipped.")
+
+        # Plot the random guess diagonal line
+        plt.plot([0, 1], [0, 1], linestyle="--", color="grey", label="Random Guess (AUC = 0.500)", lw=2)
+        
+        # Customize plot
+        plt.xlabel('False Positive Rate (FPR)', fontsize=12)
+        plt.ylabel('True Positive Rate (TPR)', fontsize=12)
+        # plt.title('ROC Curves for Selected Iterations '+pos_label, fontsize=15)
+        plt.legend(loc="lower right", fontsize=12)
+        plt.grid(alpha=0.5)
+        plt.savefig(f"ROC_curves_{categories[5]}_{categories[cancer1_category_index]}.pdf", dpi = 300, bbox_inches='tight', format='pdf')
+        plt.show()
+        
 
     return important_biomarkers
 

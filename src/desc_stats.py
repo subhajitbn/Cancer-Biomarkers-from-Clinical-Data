@@ -79,7 +79,7 @@ def coefficient_of_variation(values):
 # Any threshold_factor between 69 and 122 will work. 
 # At threshold_factor = 68, we have more than one category reported as unique in Q2 values of CA-125.
 # At threshold_factor = 123, we lose the uniqueness of Pancreas in Q3 values of CA19-9.
-def identify_outliers_mad(values, threshold_factor=122):
+def identify_outliers_mad(values, threshold_factor=69):
     """
     Identify outlier categories in the given list of Q2 values using the
     Median Absolute Deviation (MAD) approach.
@@ -264,8 +264,8 @@ if __name__ == "__main__":
 
     # descriptive_statistics(categories, dfs, biomarker_index = 0)
     
-    # for i in range(39):
-    #     uniquely_high_level_identification(categories, dfs, biomarker_index = i)
+    for i in range(39):
+        uniquely_high_level_identification(categories, dfs, biomarker_index = i)
         
-    for i in [29, 18, 35, 31, 16, 37]:
-        higher_side_filtering_identification(categories, dfs, biomarker_index = i, category_index=6)
+    # for i in [29, 18, 35, 31, 16, 37]:
+    #     higher_side_filtering_identification(categories, dfs, biomarker_index = i, category_index=6)
