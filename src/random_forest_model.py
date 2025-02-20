@@ -155,7 +155,7 @@ def rf_normal_cancers(categories,
         # Select specific iterations to display ROC curves
         selected_iterations = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]  # Iteration indices to plot
 
-        plt.figure(figsize=(10, 8))
+        plt.figure(figsize=(12, 12))
         for idx in selected_iterations:
             if idx < len(fpr_values):  # Ensure the selected index is within bounds
                 fpr = fpr_values[idx]
@@ -169,12 +169,14 @@ def rf_normal_cancers(categories,
         plt.plot([0, 1], [0, 1], linestyle="--", color="grey", label="Random Guess (AUC = 0.500)", lw=2)
         
         # Customize plot
-        plt.xlabel('False Positive Rate (FPR)', fontsize=12)
-        plt.ylabel('True Positive Rate (TPR)', fontsize=12)
+        plt.xlabel('False Positive Rate (FPR)', fontsize=18)
+        plt.ylabel('True Positive Rate (TPR)', fontsize=18)
+        plt.tick_params(axis='both', which='major', labelsize=14)
+        plt.tick_params(axis='both', which='minor', labelsize=12)
         # plt.title('ROC Curves for Selected Iterations '+pos_label, fontsize=15)
         plt.legend(loc="lower right", fontsize=12)
         plt.grid(alpha=0.5)
-        plt.savefig(f"ROC_curves_{categories[5]}_{categories[cancer1_category_index]}.pdf", dpi = 300, bbox_inches='tight', format='pdf')
+        plt.savefig(f"ROC_curves_{categories[5]}_{categories[cancer1_category_index]}.pdf", dpi = 600, bbox_inches='tight', format='pdf')
         plt.show()
         
 
@@ -189,7 +191,7 @@ def plot_important_biomarkers(important_biomarkers,
                               color = 'goldenrod',
                               threshold = 0.05):
     if ax is None:
-        fig, ax = plt.subplots(figsize=(10, 6))
+        fig, ax = plt.subplots(figsize=(12, 6))
     sns.barplot(x='Importance', y='Biomarker', data=important_biomarkers, color = color, ax=ax)
     if len(datasets) == 3:
         titletext = f"{datasets[0]} + {datasets[1]} + {datasets[2]} \n Biomarkers with Average Importance >= {threshold}"
