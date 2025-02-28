@@ -1,5 +1,6 @@
 # Datasets
 *.xlsx
+*.csv
 *.docx
 
 # Byte-compiled / optimized / DLL files
