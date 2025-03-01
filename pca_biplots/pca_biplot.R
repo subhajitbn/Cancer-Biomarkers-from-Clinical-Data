@@ -1,6 +1,5 @@
 # Load required libraries
 library(readxl)     # For reading Excel files
-library(factoextra)
 library(ggrepel)
 
 # Step 1: Load the Excel file
@@ -49,7 +48,7 @@ for (cancer in selected_cancer_sheets) {
   # Standardize column names
   colnames(normal_sample) <- make.names(colnames(normal_sample))
   colnames(cancer_sample) <- make.names(colnames(cancer_sample))
-
+  
   # Keep only common columns (if column names are mismatched)
   common_columns <- intersect(colnames(normal_sample), colnames(cancer_sample))
   normal_sample <- normal_sample[, common_columns]
@@ -80,28 +79,69 @@ for (cancer in selected_cancer_sheets) {
   # Perform PCA
   pca_result <- prcomp(numeric_data, scale. = TRUE)
   
-  p1 <- fviz_pca_biplot(pca_result,
-                        select.var = list(contrib = 10),
-                        geom = "point",
-                        addEllipses = TRUE, 
-                        ggtheme = theme_gray(), 
-                        alpha.var=0.3,
-                        col.ind = numeric_data_with_label$Tumor.type,
-                        col.var = "blue", 
-                        repel=TRUE,
-                        title = paste0(cancer, " + Healthy samples")) + theme(
-                          plot.title = element_text(size = 16),         
-                          axis.title = element_text(size = 14),        
-                          axis.text = element_text(size = 12),         
-                          legend.title = element_text(size = 13),      
-                          legend.text = element_text(size = 12)        
-                        )
+  # Percentage of variance explained for each PC
+  variance_explained <- summary(pca_result)$importance[2, ] * 100  # The second row stores Proportion of Variance
+  
+  # Get specific values for PC1 and PC2
+  percentage_pc1 <- round(variance_explained[1], 2)  # Variance explained by PC1
+  percentage_pc2 <- round(variance_explained[2], 2)  # Variance explained by PC2
+  
+  # Extract PCA results
+  var_coords <- as.data.frame(pca_result$rotation)  # Extract variable loadings
+  var_coords$Variable <- rownames(var_coords)  # Add feature names as a separate column
+  rownames(var_coords) <- NULL  # Remove rownames for clean data manipulation
+  
+  # Compute "contributions" of variables as the sum of squared loadings for PC1 and PC2
+  var_coords$Contribution <- var_coords$PC1^2 + var_coords$PC2^2
+  
+  # Select the top 10 contributing variables
+  top_var_coords <- var_coords[order(-var_coords$Contribution), ][1:10, ]  # Sort and pick top 10
+  
+  # Extract sample (individual) coordinates for PC1 and PC2
+  ind_coords <- as.data.frame(pca_result$x)  # Coordinates of individuals (samples)
+  ind_coords <- ind_coords[, c("PC1", "PC2")]  # Retain only the first two PCs for plotting
+  ind_coords$Group <- numeric_data_with_label$Tumor.type  # Add group labels for coloring
+  
+  # Create PCA biplot using ggplot2 and ggrepel
+  arrow_scaling_factor = 30
+  
+  p1 <- ggplot(ind_coords, aes(x = PC1, y = PC2, color = Group)) +
+    geom_point(size = 2, alpha = 0.6) +  # Plot individuals
+    stat_ellipse(geom = "polygon", aes(fill = Group), 
+                 alpha = 0.2, level = 0.95, show.legend = FALSE) + 
+    geom_segment(data = top_var_coords, 
+                 aes(x = 0, y = 0, 
+                     xend = PC1 * arrow_scaling_factor, yend = PC2 * arrow_scaling_factor),
+                 arrow = arrow(length = unit(0.3, "cm")), 
+                 color = "blue", size = 0.5, alpha = 0.3) +  # Plot variable arrows
+    geom_text_repel(data = top_var_coords, 
+                    aes(x = PC1 * arrow_scaling_factor, 
+                        y = PC2 * arrow_scaling_factor, label = Variable),
+                    size = 6, color = "blue",
+                    max.overlaps = 20,
+                    box.padding = 0.5,
+                    point.padding = 0.5,
+                    force = 2) +  # Add ggrepel for label placement
+    # Flip colors for the groups
+    scale_color_manual(values = rev(scales::hue_pal()(2))) +  # Reverse the default color palette
+    scale_fill_manual(values = rev(scales::hue_pal()(2))) +   # Reverse the default fill palette
+    labs(title = paste0(cancer, " + Healthy Samples"), 
+         x = paste0("PC1 (", percentage_pc1, "%)"), 
+         y = paste0("PC2 (", percentage_pc2, "%)"), 
+         color = "Group") +
+    theme_gray() +
+    theme(
+      plot.title = element_text(size = 18),
+      axis.title = element_text(size = 16),
+      axis.text = element_text(size = 12),
+      legend.title = element_text(size = 16),
+      legend.text = element_text(size = 14)
+    )
   
   # Display or save the plot
-  print(p1)  # Show in the RStudio viewer
+  print(p1)  # View in the RStudio viewer
   
   # Uncomment to save the plot as an image file
   file_name <- paste0(cancer, "_PCA_biplot_top_biomarkers.pdf")
-  ggsave(filename = file_name, plot = p1, dpi = 600, width = 16, height = 12)
+  ggsave(filename = file_name, plot = p1, dpi = 600, width = 8, height = 6)
 }
-
