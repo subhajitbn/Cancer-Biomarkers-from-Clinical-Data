@@ -1,5 +1,6 @@
 # Load required libraries
 library(readxl)     # For reading Excel files
+library(ggplot2)
 library(ggrepel)
 
 # Step 1: Load the Excel file
@@ -125,7 +126,7 @@ for (cancer in selected_cancer_sheets) {
     # Flip colors for the groups
     scale_color_manual(values = rev(scales::hue_pal()(2))) +  # Reverse the default color palette
     scale_fill_manual(values = rev(scales::hue_pal()(2))) +   # Reverse the default fill palette
-    labs(title = paste0(cancer, " + Healthy Samples"), 
+    labs(# title = paste0(cancer, " + Healthy Samples"), 
          x = paste0("PC1 (", percentage_pc1, "%)"), 
          y = paste0("PC2 (", percentage_pc2, "%)"), 
          color = "Group") +

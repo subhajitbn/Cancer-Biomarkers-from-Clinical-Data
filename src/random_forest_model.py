@@ -88,7 +88,10 @@ def rf_normal_cancers(categories,
             y = pd.concat([normal_labels, cancer_1_labels], ignore_index=True)
 
         # Step 5: Train-test split
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = test_size, random_state = i, stratify=y)
+        if roc == True:
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = test_size, random_state = i, stratify=y)
+        else:
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = test_size, random_state = i)
 
         # Step 6: Train RandomForestClassifier
         rf_normal_ovary_pancreas = RandomForestClassifier(random_state=i)
