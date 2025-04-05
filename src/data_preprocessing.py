@@ -3,7 +3,7 @@
 import pandas as pd
 import numpy as np
 
-def load_data(file_path = "../data/clinical_cancer_data.xlsx"):
+def load_data(file_path = "data/clinical_cancer_data.xlsx"):
     
     """
     Load the clinical cancer data from the given Excel file.
