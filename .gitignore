@@ -3,8 +3,8 @@
 article/
 
 # Datasets
-!data/aar3247_cohen_sm_tables-s1-s11.xlsx
 *.xlsx
+!data/aar3247_cohen_sm_tables-s1-s11.xlsx
 *.csv
 *.docx
 
