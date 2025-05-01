@@ -55,29 +55,29 @@ As the saying goes, "A picture is worth a thousand words". Here's a visual overv
 
 ### Preliminary Selection of Biomarkers Based on their MDI Scores
 Note that, we did not make any use of the ascending order of the MDI scores to select the top biomarkers. We employed a cutoff of 0.4 and selected all the biomarkers that passed the cutoff as equally probable.
-![Top Biomarkers based on MDI Scores](jpg\FIG2.jpg)
+![Top Biomarkers based on MDI Scores](jpg/FIG2.jpg)
 
 ### Descriptive Statistics-based Analysis
 `MDI` scores are not enough to nail down a biomarkers. Sure, these biomarkers are helpful in class label differentiation. But that can happen even if the biomarker level is not particularly pronounced in that cancer type. So, now we look at the `Q2` and `Q3` levels of the selected biomarkers across all the cancer types. If the biomarker level is higher in the cancer type in which it passed the MDI score cutoff, it is more likely to be a biomarker for that cancer type.
 
 The following boxplot clearly shows that in some cancer types, the `Q2` and `Q3` levels a few biomarkers are clear outliers. We do make this more precise in our schema. But the boxplot provides a good overview of the data. For example, `CA-125`, `Prolactin`, and `HE4` have clearly higher levels in `Ovary` compared to other cancer types. Those are the biomarkers that ultimately get selected as the potential biomarkers for ovarian cancer at the end.
-![Boxplot of Biomarker Levels (Q2 and Q3) across the Cancer Types](jpg\FIG3.jpg)
+![Boxplot of Biomarker Levels (Q2 and Q3) across the Cancer Types](jpg/FIG3.jpg)
 
 Also, we do need the biomarker `Q3` level in their respective cancer types to be in the top 3. Otherwise we drop that biomarker from further consideration.
-![Boxplot of Biomarker Levels (Q3) across the Cancer Types](jpg\FIG4.jpg)
+![Boxplot of Biomarker Levels (Q3) across the Cancer Types](jpg/FIG4.jpg)
 
 ### Shared Nature of the Biomarkers
-![Heatmap for the p-values in Yuen-Welch's Tests](jpg\FIG5.jpg)
+![Heatmap for the p-values in Yuen-Welch's Tests](jpg/FIG5.jpg)
 
 ### Finally, the Result
-![Venn Diagram of the Selected Biomarkers](jpg\FIG1.jpg)
+![Venn Diagram of the Selected Biomarkers](jpg/FIG1.jpg)
 
 ## Further Questions
 
 ### Does the Use of MDI Scores Make Sense?
 Empirically, in this particular dataset, it does. For example, the following graphs show that over a 100 iterations of fitting RandomForest classifiers for `healthy + ovary` samples, the MDI scores converge.
-![Convergence of MDI Scores for Ovary](jpg\normal_ovary_convergence_of_MDI_scores.jpg)
-![Convergence of the Cumulative Mean of the MDI Scores for Ovary](jpg\normal_ovary_stability_of_cumulative_mean_MDI_scores.jpg)
+![Convergence of MDI Scores for Ovary](jpg/normal_ovary_convergence_of_MDI_scores.jpg)
+![Convergence of the Cumulative Mean of the MDI Scores for Ovary](jpg/normal_ovary_stability_of_cumulative_mean_MDI_scores.jpg)
 
 ### Why not PCA?
-![PCA Biplot of Healthy + Pancreas samples](jpg\Pancreas_PCA_biplot_top_biomarkers.jpg)
+![PCA Biplot of Healthy + Pancreas samples](jpg/Pancreas_PCA_biplot_top_biomarkers.jpg)
