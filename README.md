@@ -89,6 +89,6 @@ But, for other higher-dimensional serum biomarker datasets with more samples, so
 
 1. Instead of an exact computation of the MAD (Median Absolute Deviation) in the statistical filtering stage, we can use an approximate MAD. While an exact MAD computation is costly, an approximate MAD can be calculated in a linear time and space cost using the procedure given by 
 
-2. We can use a parallelized implementation of the 100 iterations of RandomForest classifier fitting to speed up the computation of the MDI scores. A brief overview of the profile of the project ([see here]()) shows that the function that handles this is the most time consuming part of the entire procedure.
+2. We can use a parallelized implementation of the 100 iterations of RandomForest classifier fitting to speed up the computation of the average MDI scores. A brief overview of the profile of the project shows that the function that handles this is the most time consuming part of the entire procedure. You can download the [program.html](src/program.html) file and open it in your browser. It shows the [SnakeViz](https://github.com/jiffyclub/snakeviz/) visualization of `cProfile`-generated output [program.prof](src/program.prof) for the entire procedure. The file `program.html` is generated using [this script](https://gist.github.com/MSSandroid/6402e2e99e31633386a312b283839e0d).  
 
 ## **Acknowledgements**
