@@ -1,6 +1,6 @@
 # Cancer Biomarkers from Clinical Data
 
-This project presents a tutorial notebook that guides users through the identification of **cancer biomarkers** from clinical data, using the dataset `data\aar3247_cohen_sm_tables-s1-s11.xlsx` provided by [Cohen et al. (2018)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6063007/). Biomarkers play a critical role in diagnosis, prognosis, and treatment evaluation, and this project provides step-by-step instructions on analyzing clinical datasets to identify them effectively.
+This project presents a tutorial notebook that guides users through the identification of **cancer biomarkers** from clinical data, using the dataset `data\aar3247_cohen_sm_tables-s1-s11.xlsx` provided by [Cohen et al. (2018)](https://doi.org/10.1126/science.aar3247). Biomarkers play a critical role in diagnosis, prognosis, and treatment evaluation, and this project provides step-by-step instructions on analyzing clinical datasets to identify them effectively.
 
 The tutorial notebook is suitable for enthusiasts, students, and researchers in the field of bioinformatics and data science who want to explore biomarker discovery in cancer research.
 
@@ -81,3 +81,14 @@ Empirically, in this particular dataset, it does. For example, the following gra
 
 ### Why not PCA?
 ![PCA Biplot of Healthy + Pancreas samples](jpg/Pancreas_PCA_biplot_top_biomarkers.jpg)
+
+### Isn't the procedure computationally intensive?
+Instead of the more computationally costly procedure of `permutation importance` or `MDA`, we have used `MDI`, which is calculated as an intrinsic part of the tree-building process. Some effort has been made in the paper to justify this choice. This single choice significantly reduces the computational cost for the overall procedure. For the particular dataset by Cohen et al. (2018), this proves to be enough. 
+
+But, for other higher-dimensional serum biomarker datasets with more samples, some further optimizations might be required. We suggested a few ideas in the paper. Some of them are as follows:
+
+1. Instead of an exact computation of the MAD (Median Absolute Deviation) in the statistical filtering stage, we can use an approximate MAD. While an exact MAD computation is costly, an approximate MAD can be calculated in a linear time and space cost using the procedure given by 
+
+2. We can use a parallelized implementation of the 100 iterations of RandomForest classifier fitting to speed up the computation of the MDI scores. A brief overview of the profile of the project ([see here]()) shows that the function that handles this is the most time consuming part of the entire procedure.
+
+## **Acknowledgements**
