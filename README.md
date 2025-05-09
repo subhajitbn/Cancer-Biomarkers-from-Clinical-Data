@@ -58,7 +58,7 @@ As the saying goes, "A picture is worth a thousand words". Here's a visual overv
 Note that, we did not make any use of the ascending order of the MDI scores to select the top biomarkers. We employed a cutoff of 0.4 and selected all the biomarkers that passed the cutoff as equally probable.
 
 #### Top Biomarkers based on MDI Scores:
-![Top Biomarkers based on MDI Scores](jpg/FIG2.jpg)
+![Top Biomarkers based on MDI Scores](https://raw.githubusercontent.com/subhajitbn/Cancer-Biomarkers-from-Clinical-Data/refs/heads/main/jpg/FIG2.jpg)
 ---
 
 ### Descriptive Statistics-based Analysis
