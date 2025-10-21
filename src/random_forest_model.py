@@ -148,7 +148,7 @@ def rf_normal_cancers(categories,
                 print(f"Random forest classification: {categories[5]} + {categories[cancer1_category_index]} + {categories[cancer2_category_index]}")
         else:
             print(f"Random forest classification: {categories[5]} + {categories[cancer1_category_index]}")
-        print(f"\nAverage Accuracy over {iterations} iterations: {np.mean(accuracies):.4f}")
+        print(f"\nAverage Accuracy over {iterations} iterations: {np.mean(accuracies):.4f} ± {np.std(accuracies):.4f}")
         print(f"\nBiomarkers with Importance >= {threshold}:")
         print(important_biomarkers)
     
